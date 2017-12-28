@@ -2,7 +2,7 @@
  #                                                     #
  #   Iterative Bruteforce (Java)                       #
  #                                                     #
- #   Purpose: Small Kata Project to iterative          #
+ #   Purpose: Small Kata Project to iteratively        #
  #            find / bruteforce a predefined string.   #
  #                                                     #
  #                                                     #
@@ -64,15 +64,21 @@ public class Bruteforce {
 
 	private char[] brute(){
 		for(int i = 0; i < this.idz.length; i++){
+			
+			// not reached char set limit, use next word on same place
 			if(this.idz[i] < this.charset.length - 1){
 				this.idz[i]++;
 				this.result[i] = this.charset[this.idz[i]];
 			}else{
+				
+				// char set limit reached on last position, increase word size by one and reset word
 				if(i + 1 == this.idz.length){
 					this.idz = new int[this.idz.length + 1];
 					this.result = new char[this.result.length + 1];
 					Arrays.fill(this.idz, 0);
 					Arrays.fill(this.result, charset[0]);
+					
+				// char set limit reached on intermediate position, reset place and go on with next position
 				}else{
 					this.idz[i] = 0;
 					this.result[i] = this.charset[this.idz[i]];
