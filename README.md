@@ -1,4 +1,4 @@
-# Kata Bruteforce
+# Kata Iterative Bruteforce
 Small Kata Project written in Java to iterative find / bruteforce a predefined string.
 
 ## Configuration and Parameters
