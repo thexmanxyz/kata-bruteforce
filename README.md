@@ -1,5 +1,5 @@
 # Kata - Iterative Bruteforce
-Small Kata Project written in Java to iteratively find / bruteforce a predefined string.
+Small Kata project written in Java to iteratively find / bruteforce a predefined string.
 
 ## Configuration and Parameters
 You can simply create a `Bruteforce` instance for a predefined charset with one of the following factory methods:
