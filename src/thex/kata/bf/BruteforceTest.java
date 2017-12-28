@@ -2,7 +2,7 @@
  #                                                     #
  #   Iterative Bruteforce (Java)                       #
  #                                                     #
- #   Purpose: Small Kata Project to iteratively        #
+ #   Purpose: Small Kata project to iteratively        #
  #            find / bruteforce a predefined string.   #
  #                                                     #
  #                                                     #
