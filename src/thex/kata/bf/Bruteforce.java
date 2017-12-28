@@ -2,7 +2,7 @@
  #                                                     #
  #   Iterative Bruteforce (Java)                       #
  #                                                     #
- #   Purpose: Small Kata Project to iteratively        #
+ #   Purpose: Small Kata project to iteratively        #
  #            find / bruteforce a predefined string.   #
  #                                                     #
  #                                                     #
@@ -78,7 +78,7 @@ public class Bruteforce {
 					Arrays.fill(this.idz, 0);
 					Arrays.fill(this.result, charset[0]);
 					
-				// char set limit reached on intermediate position, reset place and go on with next position
+				// char set limit reached on intermediate position, reset place and go on with next character position
 				}else{
 					this.idz[i] = 0;
 					this.result[i] = this.charset[this.idz[i]];

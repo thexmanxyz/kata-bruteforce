@@ -14,7 +14,7 @@ package thex.kata.bf;
 
 public class BruteforceTest {
 
-	private final static String WORD = "*xA0";
+	private final static String WORD = "+#xy";
 	private final static int MAX_LENGTH = 4;
 	
 	public static void main(String[] args) {
