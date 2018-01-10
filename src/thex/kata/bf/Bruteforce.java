@@ -70,11 +70,11 @@ public class Bruteforce {
 		do{
 			find = this.bruteIterativeInner();	
 			
-			//check if max length reached
+			// check if max length reached
 			if(find.length > maxLength)
 				return new char[0];
 			
-		//if search word found escape
+		// if search word found then escape
 		}while(!Arrays.equals(hSearch, find));
 		return find;
 	}
@@ -104,7 +104,7 @@ public class Bruteforce {
 			break;
 		}
 		
-		//update iterations
+		// update iterations
 		this.iterations++;
 		return this.result;
 	}
@@ -113,13 +113,13 @@ public class Bruteforce {
 		long startTime = System.currentTimeMillis();
 		String find = "";
 		
-		//reset iterations on reuse
+		// reset iterations on reuse
 		this.iterations = 0;
 		
-		//start the brute forcing
+		// start the brute forcing
 		find = new String(bruteIterative(word, maxLength));
 		
-		//output on result
+		// output on result
 		System.out.println("Time needed: " + (System.currentTimeMillis() - startTime) + "ms");
 		System.out.println("Iterations required: " + iterations);
 		if(word.equals(find))
