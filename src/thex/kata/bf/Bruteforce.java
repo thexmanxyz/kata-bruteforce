@@ -1,14 +1,14 @@
-/*######################################################
- #                                                     #
- #   Iterative Bruteforce (Java)                       #
- #                                                     #
- #   Purpose: Small Kata project to iteratively        #
- #            find / bruteforce a predefined string.   #
- #                                                     #
- #                                                     #
- #   Author: Andreas Kar (thex) <andreas.kar@gmx.at>   #
- #                                                     #
-/######################################################*/
+/*######################################################'
+ #                                                      #
+ #   Iterative BruteForce (Java)                        #
+ #                                                      #
+ #   Purpose: Small Kata project to iteratively         #
+ #            find / brute force a predefined string.   #
+ #                                                      #
+ #                                                      #
+ #   Author: Andreas Kar (thex) <andreas.kar@gmx.at>    #
+ #                                                      #
+/#######################################################*/
 
 package thex.kata.bf;
 
@@ -23,6 +23,7 @@ public class Bruteforce {
 	private final char[] charset;
 	private int[] idz = new int[1];
 	private char[] result = new char[1];
+	private int iterations = 0;
 	
 	
 	public Bruteforce(String charset) {
@@ -61,8 +62,24 @@ public class Bruteforce {
 	public final static Bruteforce getBFAll(){
 		return new Bruteforce(ALPHA_LOWER + ALPHA_UPPER + ALPHA_NUMERIC + ALPHA_SPECIAL);
 	}
+	
+	private char[] bruteIterative(String searchWord, int maxLength){
+		char[] hSearch = searchWord.toCharArray();
+		char[] find = new char[0];
+		
+		do{
+			find = this.bruteIterativeInner();	
+			
+			//check if max length reached
+			if(find.length > maxLength)
+				return new char[0];
+			
+		//if search word found escape
+		}while(!Arrays.equals(hSearch, find));
+		return find;
+	}
 
-	private char[] brute(){
+	private char[] bruteIterativeInner(){
 		for(int i = 0; i < this.idz.length; i++){
 			
 			// not reached char set limit, use next word on same place
@@ -70,7 +87,6 @@ public class Bruteforce {
 				this.idz[i]++;
 				this.result[i] = this.charset[this.idz[i]];
 			}else{
-				
 				// char set limit reached on last position, increase word size by one and reset word
 				if(i + 1 == this.idz.length){
 					this.idz = new int[this.idz.length + 1];
@@ -87,20 +103,29 @@ public class Bruteforce {
 			}
 			break;
 		}
+		
+		//update iterations
+		this.iterations++;
 		return this.result;
 	}
 	
 	public void find(String word, int maxLength){
+		long startTime = System.currentTimeMillis();
 		String find = "";
-		do{
-			find = new String(this.brute());			
-			if(find.length() > maxLength)
-				break;
-		}while(!word.equals(find));
 		
+		//reset iterations on reuse
+		this.iterations = 0;
+		
+		//decide which method to use
+		find = new String(bruteIterative(word, maxLength));
+		
+		//output on result
+		System.out.println("Time needed: " + (System.currentTimeMillis() - startTime) + "ms");
+		System.out.println("Iterations required: " + iterations);
 		if(word.equals(find))
 		    System.out.println("Password: " + find);
 		else
 		    System.out.println("Password not found!");
+		
 	}
 }
