@@ -12,7 +12,9 @@
 
 package thex.kata.bf;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Bruteforce {	
 	private final static String ALPHA_UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -20,11 +22,15 @@ public class Bruteforce {
 	private final static String ALPHA_NUMERIC = "0123456789";
 	private final static String ALPHA_SPECIAL = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
 	
+	private boolean output = false;
+	private boolean store = false;
+	
 	private final char[] charset;
 	private int[] idz = new int[1];
 	private char[] result = new char[1];
-	private int iterations = 0;
+	private int iterations = 0;	
 	
+	private List<String> passStore = new ArrayList<String>();
 	
 	public Bruteforce(String charset) {
 		this.charset = charset.toCharArray();
@@ -73,9 +79,17 @@ public class Bruteforce {
 			// check if max length reached
 			if(find.length > maxLength)
 				return new char[0];
+		
+			// handle output
+			else if(output)
+				System.out.println(find);
+			
+			// handle storage
+			else if(store)
+				passStore.add(new String(find));
 			
 		// if search word found then escape
-		}while(!Arrays.equals(hSearch, find));
+		}while(store || !Arrays.equals(hSearch, find));
 		return find;
 	}
 
@@ -122,10 +136,25 @@ public class Bruteforce {
 		// output on result
 		System.out.println("Time needed: " + (System.currentTimeMillis() - startTime) + "ms");
 		System.out.println("Iterations required: " + iterations);
-		if(word.equals(find))
-		    System.out.println("Password: " + find);
-		else
-		    System.out.println("Password not found!");
 		
+		// no output on store because no matching took place
+		if(!store){
+			if(word.equals(find))
+			    System.out.println("Password: " + find);
+			else
+			    System.out.println("Password not found!");
+		}
+	}
+	
+	public void setOutput(boolean output){
+		this.output = output;
+	}
+	
+	public void setStore(boolean store){
+		this.store = store;
+	}
+	
+	public List<String> getPassStore(){
+		return this.passStore;
 	}
 }
