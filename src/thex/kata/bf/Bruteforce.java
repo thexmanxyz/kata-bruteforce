@@ -5,7 +5,6 @@
  #   Purpose: Small Kata project to iteratively         #
  #            find / brute force a predefined string.   #
  #                                                      #
- #                                                      #
  #   Author: Andreas Kar (thex) <andreas.kar@gmx.at>    #
  #   Repository: https://git.io/fAHyg                   #
  #                                                      #
