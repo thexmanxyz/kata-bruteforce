@@ -1,6 +1,6 @@
 /*#######################################################
  #                                                      #
- #   Iterative BruteForce (Java)                        #
+ #   Kata - Iterative Bruteforce                        #
  #                                                      #
  #   Purpose: Small Kata project to iteratively         #
  #            find / brute force a predefined string.   #
@@ -19,7 +19,7 @@ public class BruteforceTest {
 	
 	public static void main(String[] args) {
 		System.out.println("Start Iterative Bruteforce:");
-		Bruteforce bf = Bruteforce.getBFAll();
+		Bruteforce bf = Bruteforce.getAllChars();
 		bf.find(WORD, MAX_LENGTH);
 	}
 }

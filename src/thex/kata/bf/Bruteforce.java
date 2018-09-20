@@ -1,6 +1,6 @@
 /*#######################################################
  #                                                      #
- #   Iterative BruteForce (Java)                        #
+ #   Kata - Iterative Bruteforce                        #
  #                                                      #
  #   Purpose: Small Kata project to iteratively         #
  #            find / brute force a predefined string.   #
@@ -37,36 +37,40 @@ public class Bruteforce {
 		this.idz[0] = -1;
 	}
 	
-	public final static Bruteforce getBFAlphaLower(){
+	public final static Bruteforce getAlphaLowerChars(){
 		return new Bruteforce(ALPHA_LOWER);
 	}
 	
-	public final static Bruteforce getBFAlphaUpper(){
+	public final static Bruteforce getAlphaUpperChars(){
 		return new Bruteforce(ALPHA_UPPER);
 	}
 	
-	public final static Bruteforce getBFNumeric(){
+	public final static Bruteforce getNumericChars(){
 		return new Bruteforce(ALPHA_NUMERIC);
 	}
 	
-	public final static Bruteforce getBFSpecial(){
+	public final static Bruteforce getSpecialChars(){
 		return new Bruteforce(ALPHA_SPECIAL);
 	}
 	
-	public final static Bruteforce getBFAlphaNumericUpper(){
+	public final static Bruteforce getAlphaNumericUpperChars(){
 		return new Bruteforce(ALPHA_UPPER + ALPHA_NUMERIC);
 	}
 	
-	public final static Bruteforce getBFAlphaNumericLower(){
+	public final static Bruteforce getAlphaNumericLowerChars(){
 		return new Bruteforce(ALPHA_LOWER + ALPHA_NUMERIC);
 	}
 	
-	public final static Bruteforce getBFAlphaNumeric(){
+	public final static Bruteforce getAlphaNumericChars(){
 		return new Bruteforce(ALPHA_LOWER + ALPHA_UPPER + ALPHA_NUMERIC);
 	}
 	
-	public final static Bruteforce getBFAll(){
+	public final static Bruteforce getAllChars(){
 		return new Bruteforce(ALPHA_LOWER + ALPHA_UPPER + ALPHA_NUMERIC + ALPHA_SPECIAL);
+	}
+	
+	public final static Bruteforce getCustomChars(String chars){
+		return new Bruteforce(chars);
 	}
 	
 	private char[] bruteIterative(String searchWord, int maxLength){
