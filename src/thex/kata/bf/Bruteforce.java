@@ -3,7 +3,7 @@
  #   Kata - Iterative Bruteforce                        #
  #                                                      #
  #   Purpose: Small Kata project to iteratively         #
- #            find / brute force a predefined string.   #
+ #            find / bruteforce a predefined string.    #
  #                                                      #
  #   Author: Andreas Kar (thex) <andreas.kar@gmx.at>    #
  #   Repository: https://git.io/fAHyg                   #
@@ -100,19 +100,19 @@ public class Bruteforce {
 	private char[] bruteIterativeInner(){
 		for(int i = 0; i < this.idz.length; i++){
 			
-			// not reached char set limit, use next word on same place
+			// not reached charset limit, use next word on same place
 			if(this.idz[i] < this.charset.length - 1){
 				this.idz[i]++;
 				this.result[i] = this.charset[this.idz[i]];
 			}else{
-				// char set limit reached on last position, increase word size by one and reset word
+				// charset limit reached on last position, increase word size by one and reset word
 				if(i + 1 == this.idz.length){
 					this.idz = new int[this.idz.length + 1];
 					this.result = new char[this.result.length + 1];
 					Arrays.fill(this.idz, 0);
 					Arrays.fill(this.result, charset[0]);
 					
-				// char set limit reached on intermediate position, reset place and go on with next character position
+				// charset limit reached on intermediate position, reset place and go on with next character position
 				}else{
 					this.idz[i] = 0;
 					this.result[i] = this.charset[this.idz[i]];
@@ -134,14 +134,14 @@ public class Bruteforce {
 		// reset iterations on reuse
 		this.iterations = 0;
 		
-		// start the brute forcing
+		// start bruteforce
 		find = new String(bruteIterative(word, maxLength));
 		
-		// output on result
+		// output results and statistics
 		System.out.println("Time needed: " + (System.currentTimeMillis() - startTime) + "ms");
 		System.out.println("Iterations required: " + iterations);
 		
-		// no output on store because no matching took place
+		// no output if store is enabled because no matching took place
 		if(!store){
 			if(word.equals(find))
 			    System.out.println("Password: " + find);
